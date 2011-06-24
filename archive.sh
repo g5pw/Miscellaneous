@@ -34,7 +34,7 @@ for tag in $tags; do
 	esac
 done
 cd $PROJECT_DIR
-echo zip -r $ARCHIVE_DIR/$CATEGORY$filename $filename #> /dev/null #Archiving directory
+zip -r $ARCHIVE_DIR/$CATEGORY$filename $filename > /dev/null #Archiving directory
 if [ $? -ne 0 ]; then
 	echo "An error ($?) occured during file zipping!"
 	exit $?
@@ -46,5 +46,5 @@ read ans
 if [ $ans -a $ans = 'n' ]; then
 	echo "Not deleting as requested"
 else
-	echo rm -rf $filename
+	rm -rfv $filename
 fi
