@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="5.91">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="yes"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="yes"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="yes"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="yes"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="yes"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="yes"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="yes"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="yes"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="yes"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="yes"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="yes"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="DIP20">
+<description>Dual in line package, 20 pin</description>
+<wire x1="26.67" y1="8.001" x2="1.27" y2="8.001" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="2.159" x2="26.67" y2="2.159" width="0.1524" layer="21"/>
+<wire x1="26.67" y1="8.001" x2="26.67" y2="2.159" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="8.001" x2="1.27" y2="6.096" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="2.159" x2="1.27" y2="4.064" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="6.096" x2="1.27" y2="4.064" width="0.1524" layer="21" curve="-180"/>
+<pad name="1" x="2.54" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="2" x="5.08" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="7" x="17.78" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="8" x="20.32" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="3" x="7.62" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="4" x="10.16" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="6" x="15.24" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="5" x="12.7" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="9" x="22.86" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="10" x="25.4" y="1.27" drill="0.8128" shape="long" rot="R90"/>
+<pad name="11" x="25.4" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="12" x="22.86" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="13" x="20.32" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="14" x="17.78" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="15" x="15.24" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="16" x="12.7" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="17" x="10.16" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="18" x="7.62" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="19" x="5.08" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<pad name="20" x="2.54" y="8.89" drill="0.8128" shape="long" rot="R90"/>
+<text x="0.889" y="2.032" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="4.191" y="4.699" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="PIC18F14K50">
+<description>20-Pin USB Flash Microcontrollers with nanoWatt XLP Technology</description>
+<pin name="VSS" x="-40.64" y="7.62" length="middle" direction="pwr"/>
+<pin name="VDD" x="-40.64" y="15.24" length="middle" direction="pwr"/>
+<pin name="RA5/IOCA5/OSC1/CLKIN" x="40.64" y="2.54" length="middle" rot="R180"/>
+<pin name="RA4/AN3/IOCA3/OSC2/CLKOUT" x="40.64" y="5.08" length="middle" rot="R180"/>
+<pin name="RA3/IOCA3/~MCLR/VPP" x="40.64" y="7.62" length="middle" rot="R180"/>
+<pin name="RC5/CCP1/P1A/T0CKI" x="-40.64" y="-2.54" length="middle"/>
+<pin name="RC4/P1B/C12OUT/SRQ" x="-40.64" y="-5.08" length="middle"/>
+<pin name="RC3/AN7/P1C/C12IN3-/PGM" x="-40.64" y="-7.62" length="middle"/>
+<pin name="RC6/AN8/~SS/T13CKI/T1OSCI" x="-40.64" y="0" length="middle"/>
+<pin name="RC7/AN9/SDO/T1OSCO" x="-40.64" y="2.54" length="middle"/>
+<pin name="RB7/IOCB7/TX/CK" x="40.64" y="-5.08" length="middle" rot="R180"/>
+<pin name="RB6/IOCB6/SCK/SCL" x="40.64" y="-7.62" length="middle" rot="R180"/>
+<pin name="RB5/AN11/IOCB5/RX/DT" x="40.64" y="-10.16" length="middle" rot="R180"/>
+<pin name="RB4/AN10/IOCB4/SDI/SDA" x="40.64" y="-12.7" length="middle" rot="R180"/>
+<pin name="RC2/AN6/P1D/C12IN2-/CVREF/INT2" x="-40.64" y="-10.16" length="middle"/>
+<pin name="RC1/AN5/C12IN1-/INT1/VREF-" x="-40.64" y="-12.7" length="middle"/>
+<pin name="RC0/AN4/C12IN+/INT0/VREF+" x="-40.64" y="-15.24" length="middle"/>
+<pin name="VUSB" x="-40.64" y="12.7" length="middle" direction="pwr"/>
+<pin name="RA1/IOCA1/D-/PGC" x="40.64" y="10.16" length="middle" rot="R180"/>
+<pin name="RA0/IOCA0/D+/PGD" x="40.64" y="12.7" length="middle" rot="R180"/>
+<text x="-33.02" y="20.32" size="1.778" layer="95">PIC18F14K50</text>
+<wire x1="-35.56" y1="17.78" x2="-35.56" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="-35.56" y1="-17.78" x2="35.56" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="35.56" y1="-17.78" x2="35.56" y2="17.78" width="0.254" layer="94"/>
+<wire x1="35.56" y1="17.78" x2="-35.56" y2="17.78" width="0.254" layer="94"/>
+<text x="0" y="-20.32" size="1.27" layer="95">&gt;NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PIC18F14K50">
+<description>PIC 18F14k50 microcontroller</description>
+<gates>
+<gate name="G$1" symbol="PIC18F14K50" x="-38.1" y="10.16"/>
+</gates>
+<devices>
+<device name="" package="DIP20">
+<connects>
+<connect gate="G$1" pin="RA0/IOCA0/D+/PGD" pad="19"/>
+<connect gate="G$1" pin="RA1/IOCA1/D-/PGC" pad="18"/>
+<connect gate="G$1" pin="RA3/IOCA3/~MCLR/VPP" pad="4"/>
+<connect gate="G$1" pin="RA4/AN3/IOCA3/OSC2/CLKOUT" pad="3"/>
+<connect gate="G$1" pin="RA5/IOCA5/OSC1/CLKIN" pad="2"/>
+<connect gate="G$1" pin="RB4/AN10/IOCB4/SDI/SDA" pad="13"/>
+<connect gate="G$1" pin="RB5/AN11/IOCB5/RX/DT" pad="12"/>
+<connect gate="G$1" pin="RB6/IOCB6/SCK/SCL" pad="11"/>
+<connect gate="G$1" pin="RB7/IOCB7/TX/CK" pad="10"/>
+<connect gate="G$1" pin="RC0/AN4/C12IN+/INT0/VREF+" pad="16"/>
+<connect gate="G$1" pin="RC1/AN5/C12IN1-/INT1/VREF-" pad="15"/>
+<connect gate="G$1" pin="RC2/AN6/P1D/C12IN2-/CVREF/INT2" pad="14"/>
+<connect gate="G$1" pin="RC3/AN7/P1C/C12IN3-/PGM" pad="7"/>
+<connect gate="G$1" pin="RC4/P1B/C12OUT/SRQ" pad="6"/>
+<connect gate="G$1" pin="RC5/CCP1/P1A/T0CKI" pad="5"/>
+<connect gate="G$1" pin="RC6/AN8/~SS/T13CKI/T1OSCI" pad="8"/>
+<connect gate="G$1" pin="RC7/AN9/SDO/T1OSCO" pad="9"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
+<connect gate="G$1" pin="VSS" pad="20"/>
+<connect gate="G$1" pin="VUSB" pad="17"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>
