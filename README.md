@@ -21,3 +21,6 @@ Ruby script adapted from Robert Jorgenson <rjorgenson@gmail.com> to display a co
 
 ##g5pwlib.lbr
 EAGLE library with some components.
+
+##latex.mk
+Basic LaTeX makefile using rubber.
