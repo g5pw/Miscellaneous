@@ -1,42 +1,68 @@
 # Packet structure:
-# 00 - 1011 0000 - Range
-# 01 - 1011 0000 - Digit 4
-# 02 - 1011 0000 - Digit 3
-# 03 - 1011 0000 - Digit 2
-# 04 - 1011 0000 - Digit 1
-# 05 - 1011 0000 - Digit 0
-# 06 - 0011 1011 - Voltage
-# 07 - 1011 0000
-# 08 - 1011 0000
-# 09 - 1011 0000
-# 10 - 1011 1010
-# 11 - 1011 0000
-# 12 - 0000 1101
-# 13 - 1000 1010
+# 00 - 0011 0000 - Range
+# 01 - 0011 0000 - Digit 4
+# 02 - 0011 0000 - Digit 3
+# 03 - 0011 0000 - Digit 2
+# 04 - 0011 0000 - Digit 1
+# 05 - 0011 0000 - Digit 0
+# 06 - 0011 1011 - Function
+# 07 - 0011 0000 - Status
+# 08 - 0011 0000 - Option1
+# 09 - 0011 0000 - Option2
+# 10 - 0011 1010 - Option3
+# 11 - 0011 0000 - Option4
+# 12 - 0000 1101 - CR
+# 13 - 0000 1010 - LF
 
-import serial
+import serial, signal
 
-ser = serial.Serial("/dev/cu.SLAB_USBtoUART", 19230, 7, 'E')
+def handler(signum, frame):
+    print("Exiting...")
 
+# Open serial port, 7 data bits, even parity, 19230 baud
+port = serial.Serial("/dev/cu.SLAB_USBtoUART", 19230, 7, 'E')
+signal.signal(signal.SIGTERM, handler)
 while True:
-    buffer = bytearray(ser.read(14))
-    if buffer[12] != 13:
+    buffer = bytearray(port.read(14))
+    if buffer[12] != 0x0D or buffer[13] != 0x0A:
         c = ''
-        print "lost sync on " + buffer.encode("hex")
-        while c != 0x0D:
-            c = decode(ser.read(1))
+        print "lost sync on " + buffer
+        while c != 0x0A:
+            c = decode(port.read(1))
             print "Syncing..." + hex(c)
         print "Synced!"
-        ser.read(1) #Read last bit
+    # Get range
+    range = (buffer[0] & 0x0F) 
+    # Determine mode
+    if buffer[6] == 0x30: mode = "A"
+    elif buffer[6] == 0x31: mode = "Diode"
+    elif buffer[6] == 0x32: mode = "Hz"
+    elif buffer[6] == 0x33: mode = "ohm"
+    elif buffer[6] == 0x35: mode = "Continuity"
+    elif buffer[6] == 0x36: mode = "F"
+    elif buffer[6] == 0x3B: mode = "V"
+    elif buffer[6] == 0x3D: mode = "uA"
+    elif buffer[6] == 0x3F: mode = "mA"
+    else:
+        mode = ''
+        print("Error in determining function: ", hex(buffer[6]))
+    if mode == "V" and range == 4:
+        range = 2
+        mode = "mV"
+    elif mode == "F" and range == 0:
+        range = 1
+        mode = "nF"
     # Digit decoding!
-    range  = 0
-    digit4 = (buffer[1] & 0x0F) * 10 ** (range)
-    digit3 = (buffer[2] & 0x0F) * 10 ** (range-1)
-    digit2 = (buffer[3] & 0x0F) * 10 ** (range-2)
-    digit1 = (buffer[4] & 0x0F) * 10 ** (range-3)
-    digit0 = (buffer[5] & 0x0F) * 10 ** (range-4)
-    number = digit0 + digit1 + digit2 + digit3 + digit4
+    number  = (buffer[1] & 0x0F)
+    number += (buffer[2] & 0x0F) * 10 ** -1
+    number += (buffer[3] & 0x0F) * 10 ** -2
+    number += (buffer[4] & 0x0F) * 10 ** -3
+    number += (buffer[5] & 0x0F) * 10 ** -4
+    number *= 10 ** range
     # Check sign!
     if (buffer[7] & 0x04) >> 2:
         number *= -1
-    print number
+    if mode == "ohm" and (buffer[7] & 0x01):
+        print "O/L"
+    else:
+        print number, mode
