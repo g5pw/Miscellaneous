@@ -28,8 +28,8 @@ while True:
         c = ''
         print "lost sync on " + buffer
         while c != 0x0A:
-            c = decode(port.read(1))
-            print "Syncing..." + hex(c)
+            c = port.read(1)
+            print "Syncing..." + bytearray(c)
         print "Synced!"
     # Get range
     range = (buffer[0] & 0x0F) 
