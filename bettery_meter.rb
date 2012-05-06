@@ -84,4 +84,8 @@ end # Class Battery
 # Script execution
 #############################################################
 batt = Battery.new
-puts batt.build_meter.to_s + " " + batt.percent.to_s + "%\n" + batt.build_time.to_s
+if ARGV.length > 0 then
+    puts batt.build_meter.to_s + " " + batt.percent.to_s + "%"
+else
+    puts batt.build_meter.to_s + " " + batt.percent.to_s + "%\n" + batt.build_time.to_s
+end
