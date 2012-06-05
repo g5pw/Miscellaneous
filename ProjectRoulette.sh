@@ -1,10 +1,6 @@
 #!/usr/bin/env zsh -f
 # vim: ft=zsh
-for project in $HOME/Documents/Projects/*(/); do
-    if [[ -n $($HOME/.bin/openmeta -t -p $project | grep active) ]]; then
-            active=( $active $(echo $project) )
-    fi
-done
+
 case $1 in
 	week )
 		source=$(date +%W);;
@@ -15,8 +11,5 @@ case $1 in
 		exit;;
 esac
 
-numProjects=${#active[@]}
-echo "Got $numProjects active projects." 1>&2
-focusing=$(($source % $numProjects))
-focusingName=`basename ${active[$focusing]}`
-echo $focusingName
+active=( $($HOME/.bin/openmeta -t -p $HOME/Documents/Projects/*(/) | fgrep active | sed 's/.* //') )
+echo $( basename ${active[$(($source % ${#active[@]} +1))]} )
